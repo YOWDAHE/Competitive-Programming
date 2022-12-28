@@ -1,0 +1,28 @@
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+
+var fizzBuzz = function(n) {
+    let arr = [];
+    let placeHolder;
+    for (i = 1; i <= n; i++){
+        if(i%3 == 0 && i%5 == 0){
+            placeHolder = "FizzBuzz";
+            arr.push(placeHolder);
+        }
+        else if(i%3 == 0){
+            placeHolder = "Fizz";
+            arr.push(placeHolder);
+        }
+        else if(i%5 == 0){
+            placeHolder = "Buzz";
+            arr.push(placeHolder);
+        }
+        else{
+            placeHolder = i.toString();
+            arr.push(placeHolder);
+        }
+    }
+    return arr;
+};
