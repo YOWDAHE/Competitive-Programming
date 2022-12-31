@@ -1,2 +1,0 @@
-# Competitive-Programming
-solving problems
