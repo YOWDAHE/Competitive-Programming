@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var smallerNumbersThanCurrent = function(nums) {
+    let counter = 0;
+    let output = [];
+    nums.map(number => {
+        nums.map(compare => {
+            if(number > compare){
+                counter++;
+            }
+        })
+        output.push(counter);
+        counter = 0;
+    })
+
+    return output;
+};
