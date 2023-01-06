@@ -1,0 +1,20 @@
+class Solution(object):
+    
+
+    def largestNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: str
+        """
+        def ForSorting(a,b):
+            if int(str(a)+str(b)) < int(str(b)+str(a)):
+                return 1
+            elif int(str(a)+str(b)) > int(str(b)+str(a)):
+                return -1
+            else:
+                return 0
+        answer = sorted(nums , key = cmp_to_key(ForSorting))
+        answer = ''.join(map(str,answer))
+        answer = int(answer)
+        answer = str(answer)
+        return answer
