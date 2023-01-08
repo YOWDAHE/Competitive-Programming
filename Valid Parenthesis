@@ -1,0 +1,32 @@
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        dic = {'{':'}',
+                '[':']',
+                '(':')'}
+        holder = []
+        bull = True
+        if s.__len__()%2 != 0: return False
+        
+        for i in range(s.__len__()):
+            for key,value in dic.items():
+                if i == 0 and s[i] == value: return False
+                # if s[s.__len__()-1] == key: return False
+                if s[i] == key:
+                    holder.append(s[i])
+                    break
+                elif s[i] == value:
+                    print(len(holder))
+                    if len(holder) == 0: return False
+                    if holder[-1] == key:
+                        holder.pop();
+                    else:
+                        bull = False
+        if len(holder) != 0: bull = False
+        return bull 
+
+                
+            
