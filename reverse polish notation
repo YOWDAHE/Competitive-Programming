@@ -1,0 +1,13 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        here = ["4","13","5","/","+"]
+        dic = {'*': lambda x,y: int(x)*int(y), '+': lambda x,y: int(y)+int(x), '-': lambda x,y: int(y)-int(x), '/': lambda x,y: int(y)/int(x)}
+        hold = []
+
+
+        for i in range(len(here)):
+            if here[i] in {'*','-','+','/'}:
+                hold.append(dic.get(here[i])(hold.pop(),hold.pop()))    
+            else:
+                hold.append(here[i])
+        return hold[0]
