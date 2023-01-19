@@ -1,0 +1,22 @@
+class Solution(object):
+    def pivotIndex(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        prefix = []
+        added = 0
+        for i in nums:
+            added += i
+            prefix.append(added)
+        
+        for i in range(len(prefix)):
+            if i == 0:
+                if 0 == (prefix[-1] - prefix[i]):
+                    return i
+            elif prefix[i-1] == (prefix[-1] - prefix[i]):
+                return i
+        return -1
+
+            
+        
