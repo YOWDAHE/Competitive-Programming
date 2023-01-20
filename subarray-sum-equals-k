@@ -1,0 +1,20 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        res = 0;
+        sums = 0;
+        prefix = {0:1}
+
+        for i in nums:
+            sums += i
+            diff = sums - k
+
+            res += prefix.get(diff,0)
+            prefix[sums] = 1 + prefix.get(sums,0)
+        return res
+
+        
